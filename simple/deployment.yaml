@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-back
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: back
+  template:
+    metadata:
+      labels:
+        name: back
+    spec:
+      containers:
+      - name: back
+        image: hyuck/back:latest
+        ports:
+          - containerPort: 7777
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: front
+  template:
+    metadata:
+      labels:
+        name: front
+    spec:
+      containers:
+      - name: front
+        image: hyuck/front:latest
+        ports:
+          - containerPort: 6666
