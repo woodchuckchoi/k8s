@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crypto
+  template:
+    metadata:
+      labels:
+        app: crypto
+    spec:
+      containers:
+      - name: encrypter
+        image: hyuck/encrypt
+        volumeMounts:
+        - mountPath: /crypto
+          name: crypto-volume
+      - name: decrypter
+        image: hyuck/decrypt
+        volumeMounts:
+        - mountPath: /crypto
+          name: crypto-volume
+        imagePullPolicy: Always
+      volumes:
+      - name: crypto-volume
+        emptyDir: {}

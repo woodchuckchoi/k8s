@@ -24,7 +24,7 @@ kind: Deployment
 metadata:
   name: deployment-front
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       name: front
