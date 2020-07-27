@@ -1,16 +1,18 @@
 {
   "Version": "2012-10-17",
-  "Statement": [{
-    "Effect": "Allow",
-    "Principal": {
-      "Federated": "arn:aws:iam::274351873145:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/4D2E877554A28AA3E87BA254A91E692C"
-    },
-    "Action": "sts:AssumeRoleWithWebIdentity",
-    "Condition": {
-      "StringEquals": {
-        "oidc.eks.us-west-2.amazonaws.com/id/4D2E877554A28AA3E87BA254A91E692C:aud": "sts.amazonaws.com",
-        "oidc.eks.us-west-2.amazonaws.com/id/4D2E877554A28AA3E87BA254A91E692C:sub": "system:serviceaccount:sagemaker-k8s-operator-system:sagemaker-k8s-operator-default"
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::[accountNumber]:oidc-provider/oidc.eks.[Region].amazonaws.com/id/[OIDC ID]"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.[Region].amazonaws.com/id/[OIDC ID]:aud": "sts.amazonaws.com",
+          "oidc.eks.[Region].amazonaws.com/id/[OIDC ID]:sub": "system:serviceaccount:sagemaker-k8s-operator-system:sagemaker-k8s-operator-default"
+        }
       }
     }
-  }]
+  ]
 }

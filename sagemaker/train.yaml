@@ -1,21 +1,21 @@
 apiVersion: sagemaker.aws.amazon.com/v1
 kind: TrainingJob
 metadata:
-  name: xgboost-mnist-2
+  name: xgboost-mnist
 spec:
-  roleArn: arn:aws:iam::274351873145:role/cwh-eks-sm-tmp
+  roleArn: [SageMaker Execution Role ARN] 
   region: us-west-2
   algorithmSpecification:
     trainingImage: 246618743249.dkr.ecr.us-west-2.amazonaws.com/sagemaker-xgboost:1.0-1-cpu-py3
     trainingInputMode: File
   outputDataConfig:
-    s3OutputPath: s3://cwh.oregon/xgboost-mnist/models/
+    s3OutputPath: s3://[PATH]
   inputDataConfig:
     - channelName: train
       dataSource:
         s3DataSource:
           s3DataType: S3Prefix
-          s3Uri: s3://cwh.oregon/xgboost-mnist/train/
+          s3Uri: s3://[PATH]
           s3DataDistributionType: FullyReplicated
       contentType: text/csv
       compressionType: None
@@ -23,7 +23,7 @@ spec:
       dataSource:
         s3DataSource:
           s3DataType: S3Prefix
-          s3Uri: s3://cwh.oregon/xgboost-mnist/validation/
+          s3Uri: s3://[PATH]
           s3DataDistributionType: FullyReplicated
       contentType: text/csv
       compressionType: None
