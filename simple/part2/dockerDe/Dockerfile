@@ -6,4 +6,6 @@ WORKDIR /receiver
 
 COPY ./decrypt ./
 
+RUN echo "ver2!"
+
 CMD ["./decrypt"]
