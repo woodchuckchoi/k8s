@@ -1,0 +1,13 @@
+{
+    "name": "service_b",
+    "version": "1.0.0",
+    "description": "MicroService Service B",
+    "author": "Woohyuck Choi <woohyuck.choi@reverselab.com>",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1"
+    }
+  }

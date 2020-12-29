@@ -1,0 +1,14 @@
+{
+    "name": "service_c",
+    "version": "1.0.0",
+    "description": "MicroService Service Integration C",
+    "author": "Woohyuck Choi <woohyuck.choi@reverselab.com>",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "axios": "^0.21.1",
+      "express": "^4.16.1"
+    }
+  }
